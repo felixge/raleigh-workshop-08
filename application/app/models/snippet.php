@@ -9,11 +9,14 @@ class Snippet extends AppModel {
 	);
 
 	var $validate = array(
-		'user_id' => array(
-			'rule' => 'notEmpty', 'message' => 'Please specify a user.'
+		'name' => array(
+			'rule' => 'notEmpty', 'message' => 'Please specify a name.'
 		)
-		, 'title' => array(
-			'rule' => 'notEmpty', 'message' => 'Please specify a title.'
+		, 'description' => array(
+			'rule' => 'notEmpty', 'message' => 'Please specify a description.'
+		)
+		, 'commands' => array(
+			'rule' => 'notEmpty', 'message' => 'Please specify some commands.'
 		)
 	);
 }

@@ -4,7 +4,11 @@ class Command extends AppModel {
 
 	var $hasMany = array('SnippetCommand');
 
-	var $validate = array();
+	var $validate = array(
+		'name' => array(
+			'rule' => 'notEmpty', 'message' => 'Please specify a name.'
+		)
+	);
 
 /**
  * undocumented function

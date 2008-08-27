@@ -41,7 +41,7 @@ class SnippetsController extends AppController {
 
 		$this->Snippet->create($this->data);
 		if (!$this->Snippet->save()) {
-			return $this->Session->setFlash('Sorry, please correct the errors below!', 'user-error');
+			return $this->Session->setFlash('Sorry, please correct the errors below!');
 		}
 
 		$snippetId = $this->Snippet->getLastInsertId();
