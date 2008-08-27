@@ -1,1 +1,0 @@
-The Ultimate snippet library

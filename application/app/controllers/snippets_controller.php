@@ -10,6 +10,25 @@ class SnippetsController extends AppController {
 		$snippets = $this->Snippet->find('all');
 		$this->set(compact('snippets'));
 	}
+
+/**
+ * undocumented function
+ *
+ * @param string $id 
+ * @return void
+ * @access public
+ */
+	function view($id = null) {
+		$conditions = array('Snippet.id' => $id);
+		$contain = array('Command');
+		$snippet = $this->Snippet->find('first', compact('conditions', 'contain'));
+
+		if (empty($snippet)) {
+			$this->Session->setFlash('Sorry, this is an invalid snippet');
+			return $this->redirect(array('action' => 'index'));
+		}
+		$this->set(compact('snippet'));
+	}
 /**
  * undocumented function
  *
@@ -54,6 +73,7 @@ class SnippetsController extends AppController {
 			}
 		}
 
+		$this->Session->setFlash('Snippet, successfully added!');
 		return $this->redirect(array('action' => 'index'));
 	}
 /**
@@ -114,7 +134,8 @@ class SnippetsController extends AppController {
 		if (!$this->Snippet->save()) {
 			return $this->Session->setFlash('Sorry, please correct the errors below!');
 		}
-		
+
+		$this->Session->setFlash('Snippet, successfully saved!');
 		return $this->redirect(array('action' => 'index'));
 	}
 /**
