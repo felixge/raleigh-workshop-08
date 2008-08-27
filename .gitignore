@@ -1,0 +1,7 @@
+# Files to globally generally ignore
+.DS_Store
+
+# Specific files / paths to ignore
+/application/app/config/database.php
+/application/app/config/core.php
+/application/app/tmp
