@@ -3,4 +3,4 @@ Howdy folks, lets get ready for the workshop!
 h1. Setting up the application
 
  # Navigate to your http docs folder in your terminal
- # Run <code>git clone git@github.com:felixge/raleigh-workshop-08.git</code>
+ # Run <code>git clone git@github.com:felixge/raleigh-workshop-08.git workshop</code>
