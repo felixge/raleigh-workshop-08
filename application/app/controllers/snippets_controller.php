@@ -10,7 +10,6 @@ class SnippetsController extends AppController {
 		$snippets = $this->Snippet->find('all');
 		$this->set(compact('snippets'));
 	}
-
 /**
  * undocumented function
  *
