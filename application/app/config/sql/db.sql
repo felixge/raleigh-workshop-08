@@ -28,3 +28,5 @@ CREATE TABLE `users` (
   `created` datetime NOT NULL,
   `updated` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+ALTER TABLE `commands` ADD `snippet_command_count` INT NOT NULL DEFAULT '0' AFTER `name` ;

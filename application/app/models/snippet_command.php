@@ -4,7 +4,9 @@ class SnippetCommand extends AppModel {
 
 	var $belongsTo = array(
 		'Snippet',
-		'Command'
+		'Command' => array(
+			'counterCache' => true
+		)
 	);
 
 	var $validate = array();

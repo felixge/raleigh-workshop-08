@@ -14,7 +14,7 @@
 		echo 'Sorry, there are no commands assigned to this snippet';
 	} else {
 		foreach ($snippet['Command'] as $c) {
-			$out[] = $c['name'];
+			$out[] = $html->link($c['name'], array('controller' => 'commands', 'action' => 'view', $c['id']));
 		}
 		echo implode(', ', $out);
 	}
