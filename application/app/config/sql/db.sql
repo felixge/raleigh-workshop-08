@@ -15,7 +15,7 @@ CREATE TABLE `snippets` (
   `modified` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-CREATE TABLE `snippet_commands` (
+CREATE TABLE `commands_snippets` (
   `id` char(36) character set utf8 collate utf8_unicode_ci NOT NULL,
   `snippet_id` char(36) character set utf8 collate utf8_unicode_ci NOT NULL,
   `command_id` char(36) character set utf8 collate utf8_unicode_ci NOT NULL
