@@ -154,7 +154,7 @@ class SnippetsController extends AppController {
 			return $this->redirect(array('action' => 'index'));
 		}
 
-		if ($this->Snippet->del($id)) {
+		if ($this->Snippet->del($id, true)) {
 			$this->Session->setFlash('The snippet has been deleted.');
 		} else {
 			$this->Session->setFlash('Error deleting the snippet.');

@@ -2,7 +2,11 @@
 class Snippet extends AppModel {
 	var $hasAndBelongsToMany = array('Command');
 
-	var $hasMany = array('SnippetCommand');
+	var $hasMany = array(
+		'SnippetCommand' => array(
+			'dependent' => true
+		)
+	);
 
 	var $validate = array(
 		'user_id' => array(
