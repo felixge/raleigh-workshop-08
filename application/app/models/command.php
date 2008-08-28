@@ -20,7 +20,8 @@ class Command extends AppModel {
 	function cloud($limit = 30) {
 		$order = array('Command.snippet_command_count' => 'desc');
 		$contain = false;
-		$commands = $this->find('all', compact('contain', 'order'));
+		$conditions = array('Command.snippet_command_count >' => '0');
+		$commands = $this->find('all', compact('contain', 'order', 'conditions'));
 
 		$maxSize = 200;
 		$minSize = 90;
