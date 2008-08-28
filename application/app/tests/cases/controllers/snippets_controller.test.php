@@ -105,6 +105,12 @@ class SnippetsControllerTest extends CakeTestCase {
 		$this->assertTrue(array_key_exists('Command', $this->sut->viewVars['snippet']));
 	}
 
+	function testSnippetIndexLoadsSomeSnippets() {
+		$this->sut->doRedirect = false;
+		$this->sut->index();
+		$this->assertFalse(empty($this->sut->viewVars['snippets']));
+	}
+
 	function testSnippetViewRedirectsIfNonExistantSnippetIdGiven() {
 		$this->sut->doRedirect = false;
 		$this->sut->edit('non-existant-id');
