@@ -1,6 +1,6 @@
 <h1><?php echo $this->pageTitle = $command['Command']['name']; ?></h1>
 
-<?php echo $html->link('back to Index', array('controller' => 'snippets', 'action' => 'index')); ?>
+<?php echo $html->link('Back to Index', array('controller' => 'snippets', 'action' => 'index')); ?>
 
 <dl>
 	<dt>Name:</dt>

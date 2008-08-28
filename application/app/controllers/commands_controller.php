@@ -3,7 +3,7 @@ class CommandsController extends AppController {
 /**
  * undocumented function
  *
- * @param string $id 
+ * @param string $id
  * @return void
  * @access public
  */

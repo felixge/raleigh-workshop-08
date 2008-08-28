@@ -46,6 +46,21 @@ class AppController extends Controller {
 /**
  * undocumented function
  *
+ * @param string $url 
+ * @param string $status 
+ * @param string $exit 
+ * @return void
+ * @access public
+ */
+	function redirect($url, $status = null, $exit = true) {
+		if (!isset($this->doRedirect) || !$this->doRedirect) {
+			return false;
+		}
+		return parent::redirct($url, $status, $exit);
+	}
+/**
+ * undocumented function
+ *
  * @param unknown $return
  * @return void
  * @access public

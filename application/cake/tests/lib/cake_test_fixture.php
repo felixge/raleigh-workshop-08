@@ -157,6 +157,9 @@ class CakeTestFixture extends Object {
  * @access public
  */
 	function drop(&$db) {
+		if (empty($this->fields)) {
+			return;
+		}
 		$this->Schema->_build(array($this->table => $this->fields));
 		$fullDebug = $db->fullDebug;
 		$db->fullDebug = false;

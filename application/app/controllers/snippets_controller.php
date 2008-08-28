@@ -148,6 +148,7 @@ class SnippetsController extends AppController {
 		$conditions = array('Snippet.id' => $id);
 		$contain = false;
 		$snippet = $this->Snippet->find('first', compact('conditions', 'contain'));
+
 		if (empty($snippet)) {
 			$this->Session->setFlash('Sorry, this is an invalid snippet');
 			return $this->redirect(array('action' => 'index'));

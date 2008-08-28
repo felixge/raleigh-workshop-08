@@ -172,7 +172,7 @@ class CakeTestCase extends UnitTestCase {
 						$object =& ClassRegistry::init($name);
 						//switch back to specified datasource.
 						$object->setDataSource($params['connection']);
-						$db =& ConnectionManager::getDataSource($object->useDbConfig);						
+						$db =& ConnectionManager::getDataSource($object->useDbConfig);
 						$db->cacheSources = false;
 
 						$models[$object->alias] = array(
@@ -440,7 +440,6 @@ class CakeTestCase extends UnitTestCase {
 		foreach ($args as $class) {
 			if (isset($this->_fixtureClassMap[$class])) {
 				$fixture = $this->_fixtures[$this->_fixtureClassMap[$class]];
-
 				$fixture->truncate($this->db);
 				$fixture->insert($this->db);
 			} else {
