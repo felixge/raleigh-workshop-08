@@ -49,7 +49,7 @@ class AppController extends Controller {
  */
 	function beforeRender() {
 		$Command = ClassRegistry::init('Command');
-		$this->set('commandCloud', $Command->cloud());
+		$this->set('commandCloud', $Command->find('cloud'));
 	}
 /**
  * undocumented function
