@@ -49,7 +49,7 @@ class AppController extends Controller {
  */
 	function beforeRender() {
 		$Command = ClassRegistry::init('Command');
-		$this->set('commandCloud', $Command->cloud());
+		$this->set('commandCloud', $Command->find('cloud'));
 	}
 /**
  * undocumented function
@@ -61,10 +61,11 @@ class AppController extends Controller {
  * @access public
  */
 	function redirect($url, $status = null, $exit = true) {
-		if (!isset($this->doRedirect) || !$this->doRedirect) {
+		if (isset($this->doRedirect) && !$this->doRedirect) {
 			$this->redirectUrl = Router::url($url);
 			return false;
 		}
+
 		return parent::redirect($url, $status, $exit);
 	}
 /**

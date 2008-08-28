@@ -44,33 +44,9 @@ class SnippetsController extends AppController {
 			return $this->Session->setFlash('Sorry, please correct the errors below!');
 		}
 
+
 		$snippetId = $this->Snippet->getLastInsertId();
-
-		if (!empty($this->data['Snippet']['commands'])) {
-			$commands = explode(',', $this->data['Snippet']['commands']);
-			foreach ($commands as $c) {
-				$c = trim($c);
-				$conditions = array('Command.name' => $c);
-				$command = $this->Snippet->Command->find('first', compact('conditions'));
-				$commandId = false;
-
-				if (empty($command)) {
-					$this->Snippet->Command->create(array(
-						'name' => $c
-					));
-					$this->Snippet->Command->save();
-					$commandId = $this->Snippet->Command->getLastInsertId();
-				} else {
-					$commandId = $command['Command']['id'];
-				}
-
-				$this->Snippet->SnippetCommand->create(array(
-					'snippet_id' => $snippetId,
-					'command_id' => $commandId
-				));
-				$this->Snippet->SnippetCommand->save();
-			}
-		}
+		$this->Snippet->insertCommands($snippetId, $this->data['Snippet']['commands']);
 
 		$this->Session->setFlash('Snippet, successfully added!');
 		return $this->redirect(array('action' => 'index'));
@@ -101,41 +77,13 @@ class SnippetsController extends AppController {
 			return $this->data = $snippet;
 		}
 
-		$this->Snippet->SnippetCommand->deleteAll(array('SnippetCommand.snippet_id' => $id));
-
-		if (!empty($this->data['Snippet']['commands'])) {
-			$commands = explode(',', $this->data['Snippet']['commands']);
-			foreach ($commands as $c) {
-				$c = trim($c);
-				$conditions = array('Command.name' => $c);
-				$command = $this->Snippet->Command->find('first', compact('conditions'));
-				$commandId = false;
-
-				if (empty($command)) {
-					$this->Snippet->Command->create(array(
-						'name' => $c
-					));
-					$this->Snippet->Command->save();
-					$commandId = $this->Snippet->Command->getLastInsertId();
-				} else {
-					$commandId = $command['Command']['id'];
-				}
-
-				$this->Snippet->SnippetCommand->create(array(
-					'snippet_id' => $id,
-					'command_id' => $commandId
-				));
-				$this->Snippet->SnippetCommand->save();
-			}
-		}
-
 		$this->Snippet->set($this->data);
 		if (!$this->Snippet->save()) {
 			return $this->Session->setFlash('Sorry, please correct the errors below!');
 		}
-
+		$this->Snippet->insertCommands($id, $this->data['Snippet']['commands']);
 		$this->Session->setFlash('Snippet, successfully saved!');
-		return $this->redirect(array('action' => 'index'));
+		$this->redirect(array('action' => 'index'));
 	}
 /**
  * undocumented function
