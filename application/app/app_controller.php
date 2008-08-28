@@ -18,6 +18,14 @@ class AppController extends Controller {
 		'Form',
 		'Text',
 	);
+
+/**
+ * Used to test whether a controller will redirect in the test suite
+ *
+ * @var string
+ * @access public
+ */
+	var $redirectUrl = false;
 /**
  * undocumented function
  *
@@ -54,9 +62,10 @@ class AppController extends Controller {
  */
 	function redirect($url, $status = null, $exit = true) {
 		if (!isset($this->doRedirect) || !$this->doRedirect) {
+			$this->redirectUrl = Router::url($url);
 			return false;
 		}
-		return parent::redirct($url, $status, $exit);
+		return parent::redirect($url, $status, $exit);
 	}
 /**
  * undocumented function

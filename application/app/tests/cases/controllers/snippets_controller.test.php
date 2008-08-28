@@ -1,4 +1,5 @@
 <?php
+include CONFIGS . 'routes.php';
 App::import('Controller', 'Snippets');
 App::import('Model', 'Snippet');
 class SnippetsControllerTest extends CakeTestCase {
@@ -10,6 +11,7 @@ class SnippetsControllerTest extends CakeTestCase {
 
 	function startCase() {
 		$this->loadFixtures('Command', 'Snippet', 'SnippetCommand');
+		$this->sut->redirectUrl;
 	}
 
 	function testSnippetDeletionRefusedIfExistentSnippet() {
@@ -98,7 +100,17 @@ class SnippetsControllerTest extends CakeTestCase {
 		$id = '48b69c67-1244-4426-950b-d26dcbdd56cb';
 
 		$this->sut->doRedirect = false;
+		$this->sut->view($id);
+
+		$this->assertTrue(array_key_exists('Command', $this->sut->viewVars['snippet']));
 	}
+
+	function testSnippetViewRedirectsIfNonExistantSnippetIdGiven() {
+		$this->sut->doRedirect = false;
+		$this->sut->edit('non-existant-id');
+		$this->assertEqual($this->sut->redirectUrl, Router::url(array('controller' => 'snippets', 'action' => 'index')));
+	}
+
 	function _fakePostRequest() {
 		$_SERVER['REQUEST_METHOD'] = 'POST';
 	}
