@@ -66,13 +66,8 @@ class SnippetsController extends AppController {
 			$this->Session->setFlash('Sorry, this is an invalid snippet');
 			return $this->redirect(array('action' => 'index'));
 		}
-		
-		$commands = array();
-		foreach ($snippet['Command'] as $c) {
-			$commands[] = $c['name'];
-		}
-		$snippet['Snippet']['commands'] = implode(', ', $commands);
 
+		$snippet['Snippet']['commands'] = implode(', ', Set::extract('/Command/name', $snippet));
 		if ($this->isGet()) {
 			return $this->data = $snippet;
 		}
