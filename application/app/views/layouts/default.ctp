@@ -3,8 +3,6 @@
 	<head>
 		<?php echo $html->charset('utf-8'); ?>
 		<title><?php echo Configure::read('App.title'); ?> : <?php echo $title_for_layout;?></title>
-		<link href="/favicon.ico" type="image/x-icon" rel="icon"/>
-		<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
 		<base href="<?php echo Router::url('/', true); ?>">
 		<?php echo $html->css('screen'); ?>
 		<?php echo $scripts_for_layout; ?>
