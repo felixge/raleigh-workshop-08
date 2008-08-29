@@ -44,7 +44,6 @@ class SnippetsController extends AppController {
 			return $this->Session->setFlash('Sorry, please correct the errors below!');
 		}
 
-
 		$snippetId = $this->Snippet->getLastInsertId();
 		$this->Snippet->insertCommands($snippetId, $this->data['Snippet']['commands']);
 
