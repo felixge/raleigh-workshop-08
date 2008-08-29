@@ -1,5 +1,6 @@
 <?php
 class SnippetsController extends AppController {
+	var $paginate = array('limit' => 2);
 /**
  * undocumented function
  *
@@ -103,6 +104,51 @@ class SnippetsController extends AppController {
 		}
 
 		$this->redirect(array('action' => 'index'));
+	}
+/**
+ * undocumented function
+ *
+ * @return void
+ * @access public
+ */
+	function search() {
+		$page = 1;
+		$sessionKey = 'snippet_search_query';
+
+		$formData = array();
+		if ($this->isPost()) {
+			$formData = $this->data;
+			$this->Session->write($sessionKey, $formData);
+		} elseif ($this->Session->check($sessionKey)) {
+			$formData = $this->Session->read($sessionKey);
+		} else {
+			return;
+		}
+
+		$this->set(compact('formData'));
+
+		if (!empty($formData)) {
+			if (strlen($formData['Snippet']['contains']) < 2) {
+				$this->Snippet->invalidate('contains');
+			}
+
+			if (isset($this->params['named']['page'])) {
+				$page = $this->params['named']['page'];
+			}
+
+			$query = $formData['Snippet']['contains'];
+			$conditions = array(
+				'or' => array(
+					'Snippet.name like' => "%{$query}%",
+					'Snippet.description like' => "%{$query}%"
+				)
+			);
+
+			$this->paginate['conditions'] = $conditions;
+			$this->paginate['page'] = $page;
+			$snippets = $this->paginate('Snippet');
+			$this->set(compact('snippets', 'query'));
+		}
 	}
 }
 
