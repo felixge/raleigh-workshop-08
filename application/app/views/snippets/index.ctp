@@ -14,5 +14,4 @@
 			<?php echo $html->link('Delete', array('controller' => 'snippets', 'action' => 'delete', $snippet['Snippet']['id']), null, 'Are you sure?') ?>
 		</li>
 	<?php endforeach; ?>
-	
 </ul>

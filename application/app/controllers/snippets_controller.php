@@ -1,6 +1,5 @@
 <?php
 class SnippetsController extends AppController {
-	var $paginate = array('limit' => 2);
 /**
  * undocumented function
  *
