@@ -21,15 +21,17 @@ class Command extends AppModel {
 		switch ($type) {
 			case 'cloud':
 				$options = array_merge(array(
-					'scaleMin' => 0.5,
-					'scaleMax' => 2,
-					'limit' => 50
+					'scale' => 2,
+					'limit' => 50,
+					'shuffle' => true,
+					'query' => array(),
 				), $query);
 
-				$commands = $this->find('all', array(
+				$commands = $this->find('all', array_merge(array(
 					'contain' => false,
 					'order' => array('Command.snippet_command_count' => 'desc'),
-				));
+					'limit' => $options['limit'],
+				)), $options['query']);
 				if (empty($commands)) {
 					return array();
 				}
@@ -37,18 +39,20 @@ class Command extends AppModel {
 				$max = $commands[0]['Command']['snippet_command_count'];
 				$min = $commands[count($commands)-1]['Command']['snippet_command_count'];
 				$range = $max - $min;
+				if (!$range) {
+					$range = 1;
+				}
 
 				foreach ($commands as &$command) {
 					$command['Command']['scale'] = 
 						(($command['Command']['snippet_command_count'] - $min) / $range)
-						* ($options['scaleMax'] - $options['scaleMin'])
-						+ $options['scaleMin'];
+						* $options['scale']
+						+ 1;
 				}
-				if ($options['limit']) {
-					$commands = array_slice($commands, 0, $options['limit']);
+				if ($options['shuffle']) {
+					srand();
+					shuffle($commands);
 				}
-				srand();
-				shuffle($commands);
 				return $commands;
 		}
 		$args = func_get_args();
