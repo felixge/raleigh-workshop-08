@@ -1,15 +1,6 @@
 <?php
-
 class SnippetFixture extends CakeTestFixture {
 	var $name = 'Snippet';
-	// var $fields = array(
-	// 	'id' => array('type' => 'string', 'length' => 36),
-	// 	'user_id' => array('type' => 'string', 'length' => 36),
-	// 	'name' => array('type' => 'string', 'length' => 255),
-	// 	'description' => array('type' => 'text'),
-	// 	'created' => array('type' => 'datetime'),
-	// 	'modified' => array('type' => 'datetime')
-	// );
 	var $records = array(
 		array(
 			'id' => '48b69c67-1244-4426-950b-d26dcbdd56cb',
@@ -37,5 +28,4 @@ class SnippetFixture extends CakeTestFixture {
 		)
 	);
 }
-
 ?>
