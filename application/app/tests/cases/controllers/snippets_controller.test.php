@@ -14,6 +14,11 @@ class SnippetsControllerTest extends CakeTestCase {
 		$this->sut->redirectUrl;
 	}
 
+	function testSnippetIndexLoadsSomeSnippets() {
+		$this->sut->index();
+		$this->assertFalse(empty($this->sut->viewVars['snippets']));
+	}
+	
 	function testSnippetDeletionRefusedIfExistentSnippet() {
 		Mock::generate('Snippet');
 		$this->sut->doRedirect = false;
@@ -105,17 +110,16 @@ class SnippetsControllerTest extends CakeTestCase {
 		$this->assertTrue(array_key_exists('Command', $this->sut->viewVars['snippet']));
 	}
 
-	function testSnippetIndexLoadsSomeSnippets() {
-		$this->sut->doRedirect = false;
-		$this->sut->index();
-		$this->assertFalse(empty($this->sut->viewVars['snippets']));
-	}
-
 	function testSnippetViewRedirectsIfNonExistantSnippetIdGiven() {
 		$this->sut->doRedirect = false;
 		$this->sut->edit('non-existant-id');
 		$this->assertEqual($this->sut->redirectUrl, Router::url(array('controller' => 'snippets', 'action' => 'index')));
 	}
+
+	// function testSnippetsIndex() {
+	// 	$results = $this->testAction('/snippets/index', array('return' => 'contents'));
+	// 	pr($results);
+	// }
 
 	function _fakePostRequest() {
 		$_SERVER['REQUEST_METHOD'] = 'POST';
