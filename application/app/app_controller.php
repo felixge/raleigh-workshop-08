@@ -61,7 +61,7 @@ class AppController extends Controller {
  * @access public
  */
 	function redirect($url, $status = null, $exit = true) {
-		if (isset($this->doRedirect) && !$this->doRedirect) {
+		if (defined('CAKEPHP_UNIT_TEST_EXECUTION')) {
 			$this->redirectUrl = Router::url($url);
 			return false;
 		}
