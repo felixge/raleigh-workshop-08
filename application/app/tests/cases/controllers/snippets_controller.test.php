@@ -19,7 +19,7 @@ class SnippetsControllerTest extends CakeTestCase {
 		$this->assertFalse(empty($this->sut->viewVars['snippets']));
 	}
 	
-	function testSnippetDeletionRefusedIfExistentSnippet() {
+	function testSnippetDeletionCallsModelDelIfValidSnippetIdPresent() {
 		Mock::generate('Snippet');
 
 		$MockSnippet =& new MockSnippet();
@@ -32,7 +32,37 @@ class SnippetsControllerTest extends CakeTestCase {
 		$MockSnippet->setReturnValue('find', array());
 		$this->sut->Snippet = $MockSnippet;
 		$this->sut->delete('someUuid');
+		$this->assertEqual($this->sut->redirectUrl, Router::url(array(
+			'controller' => 'snippets', 'action' => 'index'))
+		);
 		$MockSnippet->expectCallCount('del', 0);
+	}
+
+	function testSnippetDeletionRefusedIfNonExistentSnippet() {
+		$this->sut->delete('nonExistantId');
+		$this->assertEqual($this->sut->redirectUrl, Router::url(array(
+			'controller' => 'snippets', 'action' => 'index'))
+		);
+		$flash = $this->sut->Session->read('Message.flash');
+		$this->assertEqual($flash['message'], 'Sorry, this is an invalid snippet');
+	}
+
+	function testSnippetDeletionDeletesSnippetIfValidSnippetId() {
+		$id = '48b69c67-1244-4426-950b-d26dcbdd56cb';
+		$conditions = array('Snippet.id' => $id);
+		$snippet = $this->sut->Snippet->find('first', compact('conditions'));
+		$this->assertFalse(empty($snippet));
+
+		$this->sut->delete($id);
+
+		$snippet = $this->sut->Snippet->find('first', compact('conditions'));
+		$this->assertTrue(empty($snippet));
+
+		$flash = $this->sut->Session->read('Message.flash');
+		$this->assertEqual($flash['message'], 'The snippet has been deleted.');
+		$this->assertEqual($this->sut->redirectUrl, Router::url(array(
+			'controller' => 'snippets', 'action' => 'index'))
+		);
 	}
 
 	function testDeletingASnippetDeletesAssociatedSnippetCommands() {
