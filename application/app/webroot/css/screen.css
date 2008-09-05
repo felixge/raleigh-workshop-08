@@ -20,7 +20,7 @@ input, textarea {border: 1px solid #ccc; background: #222; color: #fff; width: 5
 .submit input{margin: 10px -2px 0 0; padding: 0 20px 0 20px; width: auto; float: right;}
 
 /* Tag cloud */
-ul.cloud {padding: 0; margin: 0; list-style-type: none; border: 1px solid #ccc; background: #222; color: #fff; padding:10px;}
+ul.cloud {padding: 0; margin: 0 0 45px 0; list-style-type: none; border: 1px solid #ccc; background: #222; color: #fff; padding:10px;}
 ul.cloud li {display: inline;}
 
 #flashMessage {border: 1px solid #ccc; background: #222; color: #fff; margin: 3px 0; padding:5px;}
