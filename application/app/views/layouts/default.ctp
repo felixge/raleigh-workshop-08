@@ -9,7 +9,10 @@
 	</head>
 	<body>
 		<div id="content">
-			<h2 id="headline">cli.licio.us<span>No more bashing your head</span></h2>
+			<div id="header">
+				<span>No more bashing your head</span>
+				<h2 id="headline">cli.licio.us</h2>
+			</div>
 			<?php $session->flash(); ?>
 			<?php echo $content_for_layout; ?>
 			<div class="clear"></div>

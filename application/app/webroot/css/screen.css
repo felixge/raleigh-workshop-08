@@ -1,8 +1,9 @@
 /* Layout */
 body{background-color: #000; color: #000; font-family: "Monaco"; font-size: 10px;}
 #content{width: 760px; margin: 0 auto 0 auto; border: 1px solid #000;}
-#headline{font-size: 12px; border-bottom: 1px solid #fff;}
-#headline span{font-size: 10x; float: right;}
+#header{border-bottom: 1px solid #fff; float: left; width: 760px; margin: 12px 0 12px 0;}
+#header h2{font-size: 12px; float: left; margin: 0 0 3px 0;}
+#header span{font-size: 10px; float: right; color: #fff; margin: 3px 0 0 0;}
 
 h1{color: #fff; font-size: 20px; margin: 15px 0 10px 0;}
 h2{color: #fff;}
