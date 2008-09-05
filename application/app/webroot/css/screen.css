@@ -15,8 +15,8 @@ form{width: 502px;}
 label{display:block;}
 label{margin: 10px 0 0 0;}
 input, textarea {border: 1px solid #ccc; background: #222; color: #fff; width: 500px; margin: 3px 0 0 0;}
-.error-message {color:#a00;}
-.input.error input, .input.error textarea, .input.error select {border:1px solid #a00;}
+.error-message {color:#c00;}
+.input.error input, .input.error textarea, .input.error select {border:1px solid #c00;}
 .submit input{margin: 10px -2px 0 0; padding: 0 20px 0 20px; width: auto; float: right;}
 
 /* Tag cloud */
