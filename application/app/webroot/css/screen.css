@@ -1,6 +1,6 @@
 /* Layout */
 body{background: #000 url(images/bg.jpg) no-repeat center top; color: #fff; font-family: "Monaco"; font-size: 10px;}
-#content {width: 760px; margin: 20px auto 0 auto;}
+#content{width: 760px; margin: 20px auto 0 auto;}
 #header{border-bottom: 1px solid #fff; float: left; width: 760px; margin: 12px 0 10px 0;}
 #header h2{font-size: 12px; float: left; margin: 0 0 3px 0;}
 #header span{font-size: 10px; float: right; margin: 3px 0 0 0;}
@@ -9,28 +9,28 @@ body{background: #000 url(images/bg.jpg) no-repeat center top; color: #fff; font
 h1{color: #fff; font-size: 20px; margin: 15px 0 10px 0;}
 h2{color: #fff; font-size:20px; margin: 15px 0 10px 0;}
 a{color: #80FF00;}
-a:hover {color:#c6ff00;}
+a:hover{color:#c6ff00;}
 
 /* Form styles */
 form{width: 502px;}
 label{display:block;}
 label{margin: 10px 0 0 0;}
-input, textarea {border: 1px solid #ccc; background: #222; color: #fff; width: 500px; margin: 3px 0 0 0;}
-.error-message {color:#c00;}
-.input.error input, .input.error textarea, .input.error select {border:1px solid #c00;}
+input, textarea{border: 1px solid #ccc; background: #222; color: #fff; width: 500px; margin: 3px 0 0 0;}
+.error-message{color:#c00;}
+.input.error input, .input.error textarea, .input.error select{border:1px solid #c00;}
 .submit input{margin: 10px -2px 0 0; padding: 0 20px 0 20px; width: auto; float: right;}
 
 /* Tag cloud */
 ul.cloud {padding: 0; margin: 0 0 35px 0; list-style-type: none; border: 1px solid #ccc; background: #222; color: #fff; padding:10px;}
-ul.cloud li {display: inline;}
+ul.cloud li{display: inline;}
 
 #flashMessage {border: 1px solid #ccc; background: #222; color: #fff; margin: 3px 0; padding:5px;}
-.clear {clear:both;}
+.clear{clear:both;}
 a.btn {font-size:14px; border: 1px outset #333; padding:5px; background: #111; color: #80FF00; text-decoration:none; float:right; margin-top:-30px;}
 a.btn:hover {border:1px inset #333;}
-ul.snippets {margin:20px auto; font-size:14px;}
-ul.snippets span {float:right;}
-ul.snippets li {clear:both; width:400px;}
+ul.snippets{margin:20px auto; font-size:14px;}
+ul.snippets span{float:right;}
+ul.snippets li{clear:both; width:400px;}
 
-dt {clear:left; float:left; display:block; width:90px; font-weight:bold; margin:0 0 15px 0;}
-dd {float:left;}
+dt{clear:left; float:left; display:block; width:90px; font-weight:bold; margin:0 0 15px 0;}
+dd{float:left;}
