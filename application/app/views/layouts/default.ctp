@@ -1,5 +1,5 @@
 <?php echo $html->docType('html4-strict'); ?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
 	<head>
 		<?php echo $html->charset('utf-8'); ?>
 		<title><?php echo Configure::read('App.title'); ?> : <?php echo $title_for_layout;?></title>
@@ -8,9 +8,9 @@
 		<?php echo $scripts_for_layout; ?>
 	</head>
 	<body>
-		<a name="top"></a>
-		<?php echo $this->element('header')?>
+		<?php // echo $this->element('header')?>
 		<div id="content">
+			<h2 id="headline">cli.licio.us<span>No more bashing your head</span></h2>
 			<?php $session->flash(); ?>
 			<?php echo $content_for_layout; ?>
 			<div class="clear"></div>
