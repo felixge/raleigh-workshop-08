@@ -1,6 +1,6 @@
 /* Layout */
 body{background: #000 url(images/bg.jpg) no-repeat center top; color: #fff; font-family: "Monaco"; font-size: 10px;}
-#content {width: 760px; margin: 50px auto 0 auto; border: 1px solid #000;}
+#content {width: 760px; margin: 20px auto 0 auto;}
 #header{border-bottom: 1px solid #fff; float: left; width: 760px; margin: 12px 0 20px 0;}
 #header h2{font-size: 12px; float: left; margin: 0 0 3px 0;}
 #header span{font-size: 10px; float: right; margin: 3px 0 0 0;}
