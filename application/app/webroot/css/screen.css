@@ -9,6 +9,7 @@ body{background: #000 url(images/bg.jpg) no-repeat center top; color: #fff; font
 h1{color: #fff; font-size: 20px; margin: 15px 0 10px 0;}
 h2{color: #fff; font-size:20px; margin: 15px 0 10px 0;}
 a{color: #80FF00;}
+a:hover {color:#c6ff00;}
 
 /* Form styles */
 form{width: 502px;}
