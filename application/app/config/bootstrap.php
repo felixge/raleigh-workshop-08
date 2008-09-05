@@ -43,4 +43,5 @@
  *
  */
 //EOF
+Configure::load('config');
 ?>

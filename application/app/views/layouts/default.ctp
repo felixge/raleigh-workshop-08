@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<?php echo $html->charset('utf-8'); ?>
-		<title><?php echo Configure::read('App.title'); ?> : <?php echo $title_for_layout;?></title>
+		<title><?php echo Configure::read('App.name'); ?> : <?php echo $title_for_layout;?></title>
 		<base href="<?php echo Router::url('/', true); ?>">
 		<?php echo $html->css('screen'); ?>
 		<?php echo $scripts_for_layout; ?>
@@ -11,7 +11,7 @@
 		<div id="content">
 			<div id="header">
 				<span>No more bashing your head</span>
-				<?php echo $html->link('<h2 id="headline">cli.licio.us</h2>', '/', array(), false, false); ?>
+				<?php echo $html->link('<h2 id="headline">' . Configure::read('App.name') . '</h2>', '/', array(), false, false); ?>
 			</div>
 			<div class="clear"></div>
 			<?php $session->flash(); ?>
