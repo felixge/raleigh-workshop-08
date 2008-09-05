@@ -1,5 +1,4 @@
 <div id="command-cloud">
-	<h3>Command Cloud</h3>
 	<?php
 	$out = array();
 	foreach ($commandCloud as $command) {

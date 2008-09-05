@@ -1,11 +1,11 @@
-<h1><?php echo $this->pageTitle = 'The Snippet List'; ?></h1>
-
+<h1>Popular tools</h1>
+<?php echo $this->element('command_cloud')?>
+<h1><?php echo $this->pageTitle = 'Popular Snippets'; ?></h1>
 <?php echo $html->link('Add', array('controller' => 'snippets', 'action' => 'add')); ?>
-
 <?php if (empty($snippets)) : ?>
 	<p>Sorry, there aren't any snippets yet.</p>
-<?php return; endif; ?>
-
+<?php return; ?>
+<?php endif; ?>
 <ul>
 	<?php foreach ($snippets as $snippet) : ?>
 		<li>

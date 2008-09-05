@@ -8,7 +8,6 @@
 		<?php echo $scripts_for_layout; ?>
 	</head>
 	<body>
-		<?php // echo $this->element('header')?>
 		<div id="content">
 			<h2 id="headline">cli.licio.us<span>No more bashing your head</span></h2>
 			<?php $session->flash(); ?>

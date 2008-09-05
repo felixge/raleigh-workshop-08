@@ -3,7 +3,7 @@ body{background-color: #000; color: #000; font-family: "Monaco"; font-size: 10px
 #headline{font-size: 12px; border-bottom: 1px solid #fff;}
 #headline span{font-size: 10x; float: right;}
 
-h1{color: #fff; font-size: 20px;}
+h1{color: #fff; font-size: 20px; margin: 15px 0 10px 0;}
 h2{color: #fff;}
 a{color: #80FF00;}
 
