@@ -11,7 +11,7 @@
 		<div id="content">
 			<div id="header">
 				<span>No more bashing your head</span>
-				<h2 id="headline">cli.licio.us</h2>
+				<?php echo $html->link('<h2 id="headline">cli.licio.us</h2>', '/', array(), false, false); ?>
 			</div>
 			<?php $session->flash(); ?>
 			<?php echo $content_for_layout; ?>
