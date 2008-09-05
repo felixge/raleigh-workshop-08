@@ -1,6 +1,7 @@
 <h1><?php echo $this->pageTitle = $snippet['Snippet']['name']; ?></h1>
 
-<?php echo $html->link('Back to Index', array('controller' => 'snippets', 'action' => 'index')); ?>
+<?php echo $html->link('Back to Index', array('controller' => 'snippets', 'action' => 'index'), array('class' => 'btn')); ?>
+<div class="clear"></div>
 
 <dl>
 	<dt>Name:</dt>

@@ -28,8 +28,8 @@ class CommandTest extends CakeTestCase {
 			}
 		}
 
-		$this->assertEqual($scaleMin, 0.5);
-		$this->assertEqual($scaleMax, 2);
+		$this->assertEqual($scaleMin, 1);
+		$this->assertEqual($scaleMax, 3);
 
 		$this->sut->deleteAll(array('Command.id <>' => 0));
 		$commands = $this->sut->find('cloud');

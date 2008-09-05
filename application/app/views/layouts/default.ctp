@@ -13,6 +13,7 @@
 				<span>No more bashing your head</span>
 				<?php echo $html->link('<h2 id="headline">cli.licio.us</h2>', '/', array(), false, false); ?>
 			</div>
+			<div class="clear"></div>
 			<?php $session->flash(); ?>
 			<?php echo $content_for_layout; ?>
 			<div class="clear"></div>
