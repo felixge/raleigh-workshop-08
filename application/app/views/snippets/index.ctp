@@ -1,7 +1,7 @@
-<h1>Popular tools</h1>
+<h2>Popular tools</h2>
 <?php echo $this->element('command_cloud')?>
 
-<h1><?php echo $this->pageTitle = 'Popular Snippets'; ?></h1>
+<h2><?php echo $this->pageTitle = 'Popular Snippets'; ?></h2>
 <?php echo $html->link('Add Snippet', array('controller' => 'snippets', 'action' => 'add'), array('class' => 'btn')); ?>
 <div class="clear"></div>
 

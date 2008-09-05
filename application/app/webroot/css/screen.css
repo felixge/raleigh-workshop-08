@@ -7,7 +7,7 @@ body{background: #000 url(images/bg.jpg) no-repeat center top; color: #fff; font
 #header a{text-decoration: none;}
 
 h1{color: #fff; font-size: 20px; margin: 15px 0 10px 0;}
-h2{color: #fff;}
+h2{color: #fff; font-size:20px; margin: 15px 0 10px 0;}
 a{color: #80FF00;}
 
 /* Form styles */
