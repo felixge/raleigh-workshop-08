@@ -356,7 +356,7 @@ class CommandFixture extends CakeTestFixture {
 		array(
 			'id' => '48b6d16c-7ab0-40b0-a9ca-dd9acbdd56cb',
 			'name' => 'awk',
-			'snippet_command_count' => '5',
+			'snippet_command_count' => '1',
 			'created' => '2008-08-28 18:25:16',
 			'modified' => '2008-08-28 18:25:16',
 		),
@@ -461,7 +461,7 @@ class CommandFixture extends CakeTestFixture {
 		array(
 			'id' => '48b6d16c-425c-4d32-be83-dd9acbdd56cb',
 			'name' => 'bzcat',
-			'snippet_command_count' => '0',
+			'snippet_command_count' => '1',
 			'created' => '2008-08-28 18:25:16',
 			'modified' => '2008-08-28 18:25:16',
 		),
@@ -1504,7 +1504,7 @@ class CommandFixture extends CakeTestFixture {
 		array(
 			'id' => '48b6d16d-7090-4ec8-8006-dd9acbdd56cb',
 			'name' => 'find',
-			'snippet_command_count' => '0',
+			'snippet_command_count' => '3',
 			'created' => '2008-08-28 18:25:17',
 			'modified' => '2008-08-28 18:25:17',
 		),
@@ -1917,7 +1917,7 @@ class CommandFixture extends CakeTestFixture {
 		array(
 			'id' => '48b6d16d-e48c-4074-808a-dd9acbdd56cb',
 			'name' => 'grep',
-			'snippet_command_count' => '10',
+			'snippet_command_count' => '2',
 			'created' => '2008-08-28 18:25:17',
 			'modified' => '2008-08-28 18:25:17',
 		),
@@ -2071,7 +2071,7 @@ class CommandFixture extends CakeTestFixture {
 		array(
 			'id' => '48b6d16d-d7e0-48a3-a7d4-dd9acbdd56cb',
 			'name' => 'head',
-			'snippet_command_count' => '4',
+			'snippet_command_count' => '0',
 			'created' => '2008-08-28 18:25:17',
 			'modified' => '2008-08-28 18:25:17',
 		),
@@ -3303,14 +3303,14 @@ class CommandFixture extends CakeTestFixture {
 		array(
 			'id' => '48b6d16d-37b4-4d2a-a0b2-dd9acbdd56cb',
 			'name' => 'mysql',
-			'snippet_command_count' => '7',
+			'snippet_command_count' => '2',
 			'created' => '2008-08-28 18:25:17',
 			'modified' => '2008-08-28 18:25:17',
 		),
 		array(
 			'id' => '48b6d16d-88d0-48b8-a9b6-dd9acbdd56cb',
 			'name' => 'mysqldump',
-			'snippet_command_count' => '2',
+			'snippet_command_count' => '0',
 			'created' => '2008-08-28 18:25:17',
 			'modified' => '2008-08-28 18:25:17',
 		),
@@ -3681,14 +3681,14 @@ class CommandFixture extends CakeTestFixture {
 		array(
 			'id' => '48b6d16d-208c-43e5-8351-dd9acbdd56cb',
 			'name' => 'pbcopy',
-			'snippet_command_count' => '0',
+			'snippet_command_count' => '1',
 			'created' => '2008-08-28 18:25:17',
 			'modified' => '2008-08-28 18:25:17',
 		),
 		array(
 			'id' => '48b6d16d-7b08-47f5-98d8-dd9acbdd56cb',
 			'name' => 'pbpaste',
-			'snippet_command_count' => '0',
+			'snippet_command_count' => '1',
 			'created' => '2008-08-28 18:25:17',
 			'modified' => '2008-08-28 18:25:17',
 		),
@@ -4598,7 +4598,7 @@ class CommandFixture extends CakeTestFixture {
 		array(
 			'id' => '48b6d16d-246c-45ec-848f-dd9acbdd56cb',
 			'name' => 'sed',
-			'snippet_command_count' => '3',
+			'snippet_command_count' => '0',
 			'created' => '2008-08-28 18:25:17',
 			'modified' => '2008-08-28 18:25:17',
 		),
@@ -5249,7 +5249,7 @@ class CommandFixture extends CakeTestFixture {
 		array(
 			'id' => '48b6d16d-6e14-4c27-95ae-dd9acbdd56cb',
 			'name' => 'tar',
-			'snippet_command_count' => '0',
+			'snippet_command_count' => '2',
 			'created' => '2008-08-28 18:25:17',
 			'modified' => '2008-08-28 18:25:17',
 		),
@@ -5998,7 +5998,7 @@ class CommandFixture extends CakeTestFixture {
 		array(
 			'id' => '48b6d16d-5ec0-45b0-9338-dd9acbdd56cb',
 			'name' => 'xargs',
-			'snippet_command_count' => '0',
+			'snippet_command_count' => '3',
 			'created' => '2008-08-28 18:25:17',
 			'modified' => '2008-08-28 18:25:17',
 		),
@@ -7244,9 +7244,37 @@ class CommandFixture extends CakeTestFixture {
 		array(
 			'id' => '48c16cda-aa40-4955-ba10-d943cbdd56cb',
 			'name' => 'cat',
-			'snippet_command_count' => '8',
+			'snippet_command_count' => '0',
 			'created' => '2008-08-28 18:25:16',
 			'modified' => '2008-08-28 18:25:16',
+		),
+		array(
+			'id' => '48c253b1-ba8c-453d-86b0-0d72cbdd56cb',
+			'name' => 'ca',
+			'snippet_command_count' => '0',
+			'created' => '2008-09-06 05:56:01',
+			'modified' => '2008-09-06 05:56:01',
+		),
+		array(
+			'id' => '48c258e3-9164-45ce-a01d-114ecbdd56cb',
+			'name' => 'rm',
+			'snippet_command_count' => '2',
+			'created' => '2008-09-06 06:18:11',
+			'modified' => '2008-09-06 06:18:11',
+		),
+		array(
+			'id' => '48c2592d-a490-40e6-b179-0d7fcbdd56cb',
+			'name' => 'git-remove',
+			'snippet_command_count' => '1',
+			'created' => '2008-09-06 06:19:25',
+			'modified' => '2008-09-06 06:19:25',
+		),
+		array(
+			'id' => '48c259ba-31a4-46e7-b133-0d74cbdd56cb',
+			'name' => 'ps',
+			'snippet_command_count' => '1',
+			'created' => '2008-09-06 06:21:46',
+			'modified' => '2008-09-06 06:21:46',
 		),
 	);
 }
