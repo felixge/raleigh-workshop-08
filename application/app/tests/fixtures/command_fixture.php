@@ -1917,7 +1917,7 @@ class CommandFixture extends CakeTestFixture {
 		array(
 			'id' => '48b6d16d-e48c-4074-808a-dd9acbdd56cb',
 			'name' => 'grep',
-			'snippet_command_count' => '1',
+			'snippet_command_count' => '2',
 			'created' => '2008-08-28 18:25:17',
 			'modified' => '2008-08-28 18:25:17',
 		),
