@@ -25,8 +25,9 @@ h2. Running the application
  # Make a copy of app/config/core.php.default in app/config/core.php
  # Make a copy of app/config/database.php.default in app/config/database.php
  # Create a new local mysql database called "workshop" (or similar)
+ # Import the app/config/sql/2008-08-06.sql file (or a newer version) into the workshop database
  # Open app/config/database.php and set up your default connection settings to make it connect to the workshop db
- # Point your browser to http://localhost/workshop/
+ # Point your browser to http://localhost/workshop/application/
  # If everything worked you should see the application running
 
 h1. Problems?
