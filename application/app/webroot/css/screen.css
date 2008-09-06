@@ -33,6 +33,7 @@ a.flush.button{margin-top: 0;}
 a.button:hover {border:1px solid #80FF00;}
 ul.snippets{margin:20px auto; font-size:14px;}
 ul.snippets span{float:right;}
+ul.snippets li{display: block;}
 ul.inline{padding: 0; margin: 0;}
 
 dt{clear:left; float:left; display:block; width:90px; font-weight:bold; margin:0 0 15px 0;}
