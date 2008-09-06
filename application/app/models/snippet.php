@@ -28,7 +28,7 @@ class Snippet extends AppModel {
 		}
 
 		$this->SnippetCommand->deleteAll(array('SnippetCommand.snippet_id' => $id));
-		$commands = explode(',', $commands);
+		$commands = preg_split('/[\s]*,[\s]*/', $commands);
 		foreach ($commands as $c) {
 			$c = trim($c);
 			$conditions = array('Command.name' => $c);
