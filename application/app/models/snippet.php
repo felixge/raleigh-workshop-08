@@ -56,20 +56,20 @@ class Snippet extends AppModel {
 			$conditions = array('Command.name' => $c);
 			$command = $this->Command->find('first', compact('conditions'));
 
-			$commandId = false;
+			$command_id = false;
 			if (empty($command)) {
 				$this->Command->create(array(
 					'name' => $c
 				));
 				$this->Command->save();
-				$commandId = $this->Command->getLastInsertId();
+				$command_id = $this->Command->id;
 			} else {
-				$commandId = $command['Command']['id'];
+				$command_id = $command['Command']['id'];
 			}
 
 			$this->SnippetCommand->create(array(
 				'snippet_id' => $id,
-				'command_id' => $commandId
+				'command_id' => $command_id
 			));
 			$this->SnippetCommand->save();
 		}
