@@ -10,6 +10,8 @@ h1{color: #fff; font-size: 20px; margin: 15px 0 10px 0;}
 h2{color: #fff; font-size:20px; margin: 15px 0 10px 0;}
 a{color: #80FF00;}
 a:hover{color:#c6ff00;}
+ul{list-style-position: inside; margin: 0; padding: 0;}
+li.alt{background-color: #222;}
 
 /* Form styles */
 form{width: 502px;}
@@ -21,7 +23,7 @@ input, textarea{border: 1px solid #ccc; background: #222; color: #fff; width: 50
 .submit input{margin: 10px -2px 0 0; padding: 0 20px 0 20px; width: auto; float: right;}
 
 /* Tag cloud */
-ul.cloud {padding: 0; margin: 0 0 35px 0; list-style-type: none; border: 1px solid #ccc; background: #222; color: #fff; padding:10px;}
+ul.cloud{padding: 0; margin: 0 0 35px 0; list-style-type: none; border: 1px solid #ccc; background: #222; color: #fff; padding:10px;}
 ul.cloud li{display: inline;}
 
 #flashMessage {border: 1px solid #ccc; background: #222; color: #fff; margin: 3px 0; padding:5px;}
@@ -31,8 +33,7 @@ a.flush.button{margin-top: 0;}
 a.button:hover {border:1px solid #80FF00;}
 ul.snippets{margin:20px auto; font-size:14px;}
 ul.snippets span{float:right;}
-ul.snippets li{clear:both;}
-ul.inline{padding: 0; list-style-position: inside; margin: 0;}
+ul.inline{padding: 0; margin: 0;}
 
 dt{clear:left; float:left; display:block; width:90px; font-weight:bold; margin:0 0 15px 0;}
 dd{float:left;}

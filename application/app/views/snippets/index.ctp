@@ -10,10 +10,10 @@
 <?php return; endif; ?>
 
 <ul class="snippets">
-	<?php foreach ($snippets as $snippet) : ?>
-		<li>
+	<?php foreach ($snippets as $i => $snippet) : ?>
+		<li class="<?php echo ($i % 2) ? 'alt' : ''; ?>">
 			<span>
-				 <?php echo $html->link('Edit', array('controller' => 'snippets', 'action' => 'edit', $snippet['Snippet']['id'])) ?> | 
+				<?php echo $html->link('Edit', array('controller' => 'snippets', 'action' => 'edit', $snippet['Snippet']['id'])) ?> | 
 				<?php echo $html->link('Delete', array('controller' => 'snippets', 'action' => 'delete', $snippet['Snippet']['id']), null, 'Are you sure?') ?>
 			</span>
 			<?php echo $html->link($snippet['Snippet']['name'], array('controller' => 'snippets', 'action' => 'view', $snippet['Snippet']['id']), array('class' => 'snippet')) ?>

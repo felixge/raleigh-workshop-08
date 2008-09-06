@@ -10,8 +10,10 @@
 		<p>Sorry, there are no snippets where this command is used.</p>
 	<?php else: ?>
 		<ul class="inline">
-		<?php foreach ($command['Snippet'] as $snippet): ?>
-			<li><?php echo $html->link($snippet['name'], array('controller' => 'snippets', 'action' => 'view', $snippet['id'])); ?></li>
+		<?php foreach ($command['Snippet'] as $i => $snippet): ?>
+			<li class="<?php echo ($i % 2) ? 'alt' : ''; ?>">
+				<?php echo $html->link($snippet['name'], array('controller' => 'snippets', 'action' => 'view', $snippet['id'])); ?>
+			</li>
 		<?php endforeach; ?>
 		</ul>
 	<?php endif; ?>

@@ -22,28 +22,6 @@ class Snippet extends AppModel {
 		)
 	);
 
-// var $validate = array(
-// 	'name' => array(
-// 		'rule' => 'notEmpty', 
-// 		'message' => 'Please specify a name.'
-// 	)
-// 	, 'description' => array(
-// 		'rule' => 'notEmpty', 
-// 		'message' => 'Please specify a description.'
-// 	)
-// 	, 'commands' => array(
-// 		'rule' => 'notEmpty', 
-// 		'message' => 'Please specify some commands.'
-// 	)
-// );
-/**
- * undocumented function
- *
- * @param string $id 
- * @param string $commands 
- * @return void
- * @access public
- */
 	function insertCommands($id, $commands) {
 		if (empty($commands)) {
 			return false;
