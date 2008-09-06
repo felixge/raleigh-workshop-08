@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<?php echo $html->charset('utf-8'); ?>
-		<title><?php echo Configure::read('App.name'); ?> : <?php echo $title_for_layout;?></title>
+		<title><?php echo $title_for_layout.' | '.Configure::read('App.name');?></title>
 		<base href="<?php echo Router::url('/', true); ?>">
 		<?php echo $html->css('screen'); ?>
 		<?php echo $scripts_for_layout; ?>
