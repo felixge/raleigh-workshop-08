@@ -1,6 +1,6 @@
 <h1><?php echo $this->pageTitle = 'Command: ' . $command['Command']['name']; ?></h1>
 
-<?php echo $html->link('Back to Index', array('controller' => 'snippets', 'action' => 'index'), array('class' => 'btn')); ?>
+<?php echo $html->link('Back to Index', array('controller' => 'snippets', 'action' => 'index'), array('class' => 'button')); ?>
 <div class="clear"></div>
 
 <dl>

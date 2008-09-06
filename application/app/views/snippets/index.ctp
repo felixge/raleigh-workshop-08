@@ -2,7 +2,7 @@
 <?php echo $this->element('command_cloud')?>
 
 <h2><?php echo $this->pageTitle = 'Popular Snippets'; ?></h2>
-<?php echo $html->link('Add Snippet', array('controller' => 'snippets', 'action' => 'add'), array('class' => 'btn')); ?>
+<?php echo $html->link('Add Snippet', array('controller' => 'snippets', 'action' => 'add'), array('class' => 'button')); ?>
 <div class="clear"></div>
 
 <?php if (empty($snippets)) : ?>
