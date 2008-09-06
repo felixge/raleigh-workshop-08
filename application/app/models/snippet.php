@@ -29,15 +29,15 @@ class Snippet extends AppModel {
 
 		$this->SnippetCommand->deleteAll(array('SnippetCommand.snippet_id' => $id));
 		$commands = preg_split('/[\s]*,[\s]*/', $commands);
-		foreach ($commands as $c) {
-			$c = trim($c);
-			$conditions = array('Command.name' => $c);
+		foreach ($commands as $command) {
+			$command = trim($command);
+			$conditions = array('Command.name' => $command);
 			$command = $this->Command->find('first', compact('conditions'));
 
 			$command_id = false;
 			if (empty($command)) {
 				$this->Command->create(array(
-					'name' => $c
+					'name' => $command
 				));
 				$this->Command->save();
 				$command_id = $this->Command->id;
