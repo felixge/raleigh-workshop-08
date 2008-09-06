@@ -7,7 +7,7 @@ h2. Requirements
  # You need to have apache / mysql / php5 running locally
  # You should have git installed (if not you won't be able to see updates as they come in)
  # Install git on your computer
- ** Windows: Instructions:"http://github.com/guides/using-git-and-github-for-the-windows-for-newbies"
+ ** Windows: "Instructions":http://github.com/guides/using-git-and-github-for-the-windows-for-newbies
  ** Mac: "Download & Install":http://code.google.com/p/git-osx-installer/
  ** Linux: Install git using the package manager of your distribution
 
