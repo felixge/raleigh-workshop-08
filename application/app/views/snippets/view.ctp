@@ -9,15 +9,16 @@
 	<dd><?php echo nl2br($snippet['Snippet']['description']); ?></dd>
 	<dt>Commands:</dt>
 	<dd>
-	<?php
-	if (empty($snippet['Command'])) {
-		echo 'Sorry, there are no commands assigned to this snippet';
-	} else {
-		foreach ($snippet['Command'] as $c) {
-			$out[] = $html->link($c['name'], array('controller' => 'commands', 'action' => 'view', $c['id']));
+	<?php if (empty($snippet['Command'])): ?>
+		<p>Sorry, there are no commands assigned to this snippet</p>
+	<?php else: ?>
+		<?php
+		$out = array();
+		foreach ($snippet['Command'] as $command) {
+			$out[] = $html->link($command['name'], array('controller' => 'commands', 'action' => 'view', $command['id']));
 		}
-		echo implode(', ', $out);
-	}
-	?>
+		echo join(", ", $out);
+		?>
+	<?php endif; ?>
 	</dd>
 </dl>
