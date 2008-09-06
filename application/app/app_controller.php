@@ -15,16 +15,6 @@ class AppController extends Controller{
 
 	var $redirectUrl = false;
 
-	function beforeFilter() {
-		$ajax = $isAjax = false;
-		if ($this->isAjax()) {
-			$this->layout = 'ajax';
-			$ajax = $isAjax = true;
-		}
-
-		$this->set(compact('ajax', 'isAjax'));
-	}
-
 	function beforeRender() {
 		$Command = ClassRegistry::init('Command');
 		$this->set('commandCloud', $Command->find('cloud'));
