@@ -10,11 +10,13 @@ h2. Requirements
 h2. Getting the code
 
 *Using git:*
+
  # Navigate to your http docs folder in your terminal
  # Run <code>git clone git@github.com:felixge/raleigh-workshop-08.git workshop</code>
  # You should now have a folder called workshop downloaded onto your computer. The CakePHP application itself is in the sub folder "application".
 
 *No git:*
+
  # Go to https://github.com/felixge/raleigh-workshop-08/tree/master
  # Download the contents of the "application" folder
 
