@@ -17,7 +17,7 @@ class SnippetFixture extends CakeTestFixture {
 			'description' => 'Remove all lines that say "Unpaid" from the current clipboard text. OSX only.',
 			'user_id' => '',
 			'created' => '2008-09-06 06:12:56',
-			'modified' => '2008-09-06 06:21:58',
+			'modified' => '2008-09-06 06:41:48',
 		),
 		array(
 			'id' => '48c257ef-3388-4bc0-a9fb-115dcbdd56cb',
