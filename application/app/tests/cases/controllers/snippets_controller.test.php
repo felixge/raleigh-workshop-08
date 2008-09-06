@@ -4,19 +4,21 @@ define('CAKEPHP_UNIT_TEST_EXECUTION', 1);
 App::import('Controller', 'Snippets');
 App::import('Model', 'Snippet');
 class SnippetsControllerTest extends CakeTestCase {
-	var $fixtures = array('snippet', 'command', 'snippet_command');
+	var $fixtures = array('snippet', 'command', 'commands_snippet');
+	var $sut = null; // subject under test
+
 	function setUp() {
-		$this->sut = new SnippetsController();
-		$this->sut->constructClasses();
+		$this->Sut = new SnippetsController();
+		$this->Sut->constructClasses();
 	}
 
 	function startCase() {
-		$this->loadFixtures('Command', 'Snippet', 'SnippetCommand');
+		$this->loadFixtures('Command', 'Snippet', 'CommandsSnippet');
 	}
 
 	function testSnippetIndexLoadsSomeSnippets() {
-		$this->sut->index();
-		$this->assertFalse(empty($this->sut->viewVars['snippets']));
+		$this->Sut->index();
+		$this->assertFalse(empty($this->Sut->viewVars['snippets']));
 	}
 	
 	function testSnippetDeletionCallsModelDelIfValidSnippetIdPresent() {
@@ -24,72 +26,72 @@ class SnippetsControllerTest extends CakeTestCase {
 
 		$MockSnippet =& new MockSnippet();
 		$MockSnippet->setReturnValue('find', array('notEmpty'));
-		$this->sut->Snippet = $MockSnippet;
-		$this->sut->delete('someUuid');
+		$this->Sut->Snippet = $MockSnippet;
+		$this->Sut->delete('someUuid');
 		$MockSnippet->expectCallCount('del', 1);
 
 		$MockSnippet =& new MockSnippet();
 		$MockSnippet->setReturnValue('find', array());
-		$this->sut->Snippet = $MockSnippet;
-		$this->sut->delete('someUuid');
-		$this->assertEqual($this->sut->redirectUrl, Router::url(array(
+		$this->Sut->Snippet = $MockSnippet;
+		$this->Sut->delete('someUuid');
+		$this->assertEqual($this->Sut->redirectUrl, Router::url(array(
 			'controller' => 'snippets', 'action' => 'index'))
 		);
 		$MockSnippet->expectCallCount('del', 0);
 	}
 
 	function testSnippetDeletionRefusedIfNonExistentSnippet() {
-		$this->sut->delete('nonExistantId');
-		$this->assertEqual($this->sut->redirectUrl, Router::url(array(
+		$this->Sut->delete('nonExistantId');
+		$this->assertEqual($this->Sut->redirectUrl, Router::url(array(
 			'controller' => 'snippets', 'action' => 'index'))
 		);
-		$flash = $this->sut->Session->read('Message.flash');
+		$flash = $this->Sut->Session->read('Message.flash');
 		$this->assertEqual($flash['message'], 'Sorry, this is an invalid snippet');
 	}
 
 	function testSnippetDeletionDeletesSnippetIfValidSnippetId() {
-		$id = '48b69c67-1244-4426-950b-d26dcbdd56cb';
+		$id = '48c2570e-dfa8-4c32-a35e-0d71cbdd56cb';
 		$conditions = array('Snippet.id' => $id);
-		$snippet = $this->sut->Snippet->find('first', compact('conditions'));
+		$snippet = $this->Sut->Snippet->find('first', compact('conditions'));
 		$this->assertFalse(empty($snippet));
 
-		$this->sut->delete($id);
+		$this->Sut->delete($id);
 
-		$snippet = $this->sut->Snippet->find('first', compact('conditions'));
+		$snippet = $this->Sut->Snippet->find('first', compact('conditions'));
 		$this->assertTrue(empty($snippet));
 
-		$flash = $this->sut->Session->read('Message.flash');
+		$flash = $this->Sut->Session->read('Message.flash');
 		$this->assertEqual($flash['message'], 'The snippet has been deleted.');
-		$this->assertEqual($this->sut->redirectUrl, Router::url(array(
+		$this->assertEqual($this->Sut->redirectUrl, Router::url(array(
 			'controller' => 'snippets', 'action' => 'index'))
 		);
 	}
 
 	function testDeletingASnippetDeletesAssociatedSnippetCommands() {
-		$id = '48b69c67-1244-4426-950b-d26dcbdd56cb';
+		$id = '48c2570e-dfa8-4c32-a35e-0d71cbdd56cb';
 		$conditions = array('Snippet.id' => $id);
-		$snippet = $this->sut->Snippet->find('first', compact('conditions'));
+		$snippet = $this->Sut->Snippet->find('first', compact('conditions'));
 		$this->assertFalse(empty($snippet));
 
-		$commands = $this->sut->Snippet->SnippetCommand->find('all', array(
+		$commands = $this->Sut->Snippet->SnippetCommand->find('all', array(
 			'conditions' => array('SnippetCommand.snippet_id' => $id)
 		));
 		$this->assertFalse(empty($commands));
 
-		$this->sut->delete($id);
+		$this->Sut->delete($id);
 
-		$snippet = $this->sut->Snippet->find('first', compact('conditions'));
+		$snippet = $this->Sut->Snippet->find('first', compact('conditions'));
 		$this->assertTrue(empty($snippet));
 
-		$commands = $this->sut->Snippet->SnippetCommand->find('all', array(
+		$commands = $this->Sut->Snippet->SnippetCommand->find('all', array(
 			'conditions' => array('SnippetCommand.snippet_id' => $id)
 		));
 		$this->assertTrue(empty($commands));
 	}
 
 	function testAddingASnippetCreatesACommandIfNonExistent() {
-		$testCommands = array('this is a test cmd', 'another one');
-		$this->sut->data = array(
+		$testCommands = array('this is a real good test cmd', 'another one test command for us');
+		$this->Sut->data = array(
 			'Snippet' => array(
 				'name' => 'Our Test Snippet',
 				'description' => 'This is a test description to pass validation',
@@ -97,18 +99,18 @@ class SnippetsControllerTest extends CakeTestCase {
 			)
 		);
 		$conditions = array('Command.name' => $testCommands);
-		$this->assertidentical(array(), $this->sut->Snippet->Command->find('all', compact('conditions')));
+		$this->assertidentical(array(), $this->Sut->Snippet->Command->find('all', compact('conditions')));
 
 		$this->_fakePostRequest();
-		$this->sut->add();
+		$this->Sut->add();
 
 		$conditions = array('Command.name' => $testCommands);
-		$this->assertEqual(count($testCommands), count($this->sut->Snippet->Command->find('all', compact('conditions'))));
+		$this->assertEqual(count($testCommands), count($this->Sut->Snippet->Command->find('all', compact('conditions'))));
 	}
 
 	function testAddingASnippetDoesNotCreateACommandIfExistent() {
 		$cmd = 'mysqldump';
-		$this->sut->data = array(
+		$this->Sut->data = array(
 			'Snippet' => array(
 				'name' => 'Our Test Snippet',
 				'description' => 'This is a test description to pass validation',
@@ -116,12 +118,12 @@ class SnippetsControllerTest extends CakeTestCase {
 			)
 		);
 		$conditions = array('Command.name' => $cmd);
-		$this->assertEqual(1, count($this->sut->Snippet->Command->find('all', compact('conditions'))));
+		$this->assertEqual(1, count($this->Sut->Snippet->Command->find('all', compact('conditions'))));
 
 		$this->_fakePostRequest();
-		$this->sut->add();
+		$this->Sut->add();
 
-		$this->assertEqual(1, count($this->sut->Snippet->Command->find('all', compact('conditions'))));
+		$this->assertEqual(1, count($this->Sut->Snippet->Command->find('all', compact('conditions'))));
 	}
 
 	function testAddingASnippetDoesNotCreateACommandIfExistentWithTestAction() {
@@ -134,21 +136,21 @@ class SnippetsControllerTest extends CakeTestCase {
 			)
 		);
 		$conditions = array('Command.name' => $cmd);
-		$this->assertEqual(1, count($this->sut->Snippet->Command->find('all', compact('conditions'))));
+		$this->assertEqual(1, count($this->Sut->Snippet->Command->find('all', compact('conditions'))));
 
 		$results = $this->testAction('/snippets/add', array('return' => 'contents', 'method' => 'post', 'data' => $data));
-		$this->assertEqual(1, count($this->sut->Snippet->Command->find('all', compact('conditions'))));
+		$this->assertEqual(1, count($this->Sut->Snippet->Command->find('all', compact('conditions'))));
 	}
 
 	function testSnippetViewSetsViewVarContainingCommands() {
-		$id = '48b69c67-1244-4426-950b-d26dcbdd56cb';
-		$this->sut->view($id);
-		$this->assertTrue(array_key_exists('Command', $this->sut->viewVars['snippet']));
+		$id = '48c2570e-dfa8-4c32-a35e-0d71cbdd56cb';
+		$this->Sut->view($id);
+		$this->assertTrue(array_key_exists('Command', $this->Sut->viewVars['snippet']));
 	}
 
 	function testSnippetViewRedirectsIfNonExistantSnippetIdGiven() {
-		$this->sut->edit('non-existant-id');
-		$this->assertEqual($this->sut->redirectUrl, Router::url(array('controller' => 'snippets', 'action' => 'index')));
+		$this->Sut->edit('non-existant-id');
+		$this->assertEqual($this->Sut->redirectUrl, Router::url(array('controller' => 'snippets', 'action' => 'index')));
 	}
 
 	// function testSnippetsIndex() {
