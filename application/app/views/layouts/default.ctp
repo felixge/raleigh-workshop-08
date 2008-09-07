@@ -6,6 +6,7 @@
 		<base href="<?php echo Router::url('/', true); ?>">
 		<?php echo $html->css('screen'); ?>
 		<?php echo $scripts_for_layout; ?>
+		<?php echo $javascript->link('prototype'); ?>
 	</head>
 	<body>
 		<div id="content">

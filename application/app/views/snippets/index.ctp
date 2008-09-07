@@ -16,7 +16,9 @@
 				<?php echo $html->link('Edit', array('controller' => 'snippets', 'action' => 'edit', $snippet['Snippet']['id'])) ?> | 
 				<?php echo $html->link('Delete', array('controller' => 'snippets', 'action' => 'delete', $snippet['Snippet']['id']), null, 'Are you sure?') ?>
 			</span>
-			<?php echo $html->link($snippet['Snippet']['name'], array('controller' => 'snippets', 'action' => 'view', $snippet['Snippet']['id']), array('class' => 'snippet')) ?>
+			<?php echo $ajax->link($snippet['Snippet']['name'], array('controller' => 'snippets', 'action' => 'view', $snippet['Snippet']['id']), array('update' => 'snippet-preview')) ?>
 		</li>
 	<?php endforeach; ?>
 </ul>
+
+<div id="snippet-preview"></div>

@@ -11,6 +11,7 @@ class AppController extends Controller{
 		'Time',
 		'Form',
 		'Text',
+		'Ajax'
 	);
 
 	var $redirectUrl = false;
