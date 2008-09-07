@@ -5,6 +5,7 @@
 		<title><?php echo $title_for_layout.' | '.Configure::read('App.name');?></title>
 		<base href="<?php echo Router::url('/', true); ?>">
 		<?php echo $html->css('screen'); ?>
+		<?php echo $javascript->link('jquery'); ?>
 		<?php echo $scripts_for_layout; ?>
 	</head>
 	<body>

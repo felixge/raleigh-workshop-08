@@ -1,3 +1,4 @@
+<?php echo $javascript->link('snippets/index', false); ?>
 <h2>Popular tools</h2>
 <?php echo $this->element('command_cloud')?>
 
@@ -8,15 +9,6 @@
 <?php if (empty($snippets)) : ?>
 	<p>Sorry, there aren't any snippets yet.</p>
 <?php return; endif; ?>
-
-<ul class="snippets">
-	<?php foreach ($snippets as $i => $snippet) : ?>
-		<li class="<?php echo ($i % 2) ? 'alt' : ''; ?>">
-			<span>
-				<?php echo $html->link('Edit', array('controller' => 'snippets', 'action' => 'edit', $snippet['Snippet']['id'])) ?> | 
-				<?php echo $html->link('Delete', array('controller' => 'snippets', 'action' => 'delete', $snippet['Snippet']['id']), null, 'Are you sure?') ?>
-			</span>
-			<?php echo $html->link($snippet['Snippet']['name'], array('controller' => 'snippets', 'action' => 'view', $snippet['Snippet']['id']), array('class' => 'snippet')) ?>
-		</li>
-	<?php endforeach; ?>
-</ul>
+<ul id="snippets"></ul>
+<a id="load-snippets" href="#load-snippets">Load Snippets</a>
+<div id="preview"></div>
