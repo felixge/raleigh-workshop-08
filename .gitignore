@@ -5,3 +5,5 @@
 /application/app/config/database.php
 /application/app/config/core.php
 /application/app/tmp
+
+/talks/felix/about-me.key
